@@ -1,7 +1,9 @@
 package com.company.finder;
 
+import com.company.MySubstring;
+
 import java.util.List;
 
 public interface Finder {
-    List<String> find(String string);
+    List<MySubstring> find(String string);
 }

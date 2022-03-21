@@ -12,7 +12,7 @@ public class MySubstring {
         this.string = string;
     }
 
-    public List<String> findSubstring(Finder finder) {
+    public List<MySubstring> findSubstring(Finder finder) {
         return finder.find(this.string);
     }
 
@@ -33,8 +33,6 @@ public class MySubstring {
 
     @Override
     public String toString() {
-        return "com.company.com.company.MySubstring{" +
-                "string='" + string + '\'' +
-                '}';
+        return string;
     }
 }
