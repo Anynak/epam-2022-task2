@@ -8,11 +8,14 @@ public class MySubstring {
     private final String string;
 
     public MySubstring(String string) {
-        string = string.replaceAll("\\s{2,}", " ");
-        this.string = string;
+        this.string = toReduceSpacesAndTabs(string);
     }
 
-    public List<MySubstring> findSubstring(Finder finder) {
+    private String toReduceSpacesAndTabs(String string) {
+        return string.replaceAll("\\s{2,}", " ");
+    }
+
+    public List<MySubstring> findSubstrings(Finder finder) {
         return finder.find(this.string);
     }
 

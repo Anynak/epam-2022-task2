@@ -26,13 +26,13 @@ public class Main {
         MySubstring mySubstring = new MySubstring(text);
         Finder finder;
 
-        finder = new SpecialFinder(new PalindromeChecker(), text.length());
-        System.out.println("palindromes: " + mySubstring.findSubstring(finder));
+        finder = new SpecialFinder(new PalindromeChecker());
+        System.out.println("palindromes: " + mySubstring.findSubstrings(finder));
 
         finder = new RegularFinder("\\+\\d{3}(\\(\\d\\d\\))\\d((\\d\\d-){2})\\d\\d");
-        System.out.println("phone numbers: " + mySubstring.findSubstring(finder));
+        System.out.println("phone numbers: " + mySubstring.findSubstrings(finder));
 
         finder = new RegularFinder("(\\w+)@(\\w+)\\.\\w{2,3}");
-        System.out.println("mails: " + mySubstring.findSubstring(finder));
+        System.out.println("mails: " + mySubstring.findSubstrings(finder));
     }
 }

@@ -8,27 +8,30 @@ import java.util.List;
 
 public class SpecialFinder implements Finder {
     private final Checker checker;
-    private int maxLength;
+    private Integer maxLength;
 
-    public SpecialFinder(Checker checker, int maxLength) {
+    public SpecialFinder(Checker checker, Integer maxLength) {
         this.checker = checker;
         this.maxLength = maxLength;
+    }
+
+    public SpecialFinder(Checker checker) {
+        this(checker, null);
     }
 
     @Override
     public List<MySubstring> find(String text) {
         long start = System.currentTimeMillis();
         List<MySubstring> result = new ArrayList<>();
-        if (this.maxLength < 1) {
+        if (this.maxLength == null || this.maxLength > text.length()) {
+            this.maxLength = text.length();
+        } else if (this.maxLength < 0) {
             return new ArrayList<>();
         }
 
-        if (text.length() < this.maxLength) {
-            this.maxLength = text.length();
-        }
         StringBuilder textSB = new StringBuilder(text);
         String substring;
-        for (int i = this.maxLength; i > 2; i--) {
+        for (int i = this.maxLength; i > 0; i--) {
             for (int j = 0; j < textSB.length() - i; j++) {
                 substring = textSB.substring(j, j + i);
                 if (this.checker.check(substring)) {
